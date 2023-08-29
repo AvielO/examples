@@ -1,22 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
 
 function App() {
+  const [word, setWord] = useState("");
+  const [show, setShow] = useState(false);
+
+  const imFunction = () => {
+    setWord("היי עדי תודה שלחצת עליי");
+    setShow(true);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {!show && (
+          <button onClick={imFunction}>
+            תלחצי עליי, סמכי עליי זה חשוב ללחוץ ממש ממש חשוב
+          </button>
+        )}
+        {show && word}
       </header>
     </div>
   );
